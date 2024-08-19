@@ -1,0 +1,7 @@
+{
+  "name": "todo-nequi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
