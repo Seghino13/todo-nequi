@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1031835932327",
+    "project_id": "nequi-fffbd",
+    "storage_bucket": "nequi-fffbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031835932327:android:ddbe4935cf876ad576ed82",
+        "android_client_info": {
+          "package_name": "com.todo.nequi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5qeIDtUoin4tC5SXXrX_kSSQCx3-bqgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

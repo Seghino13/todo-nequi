@@ -1,0 +1,11 @@
+{
+  "appId": "com.todo.nequi",
+  "appName": "todo-nequi",
+  "webDir": "www",
+  "packageClassList": [
+    "AppPlugin",
+    "HapticsPlugin",
+    "KeyboardPlugin",
+    "StatusBarPlugin"
+  ]
+}

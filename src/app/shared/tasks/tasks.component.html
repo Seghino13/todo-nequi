@@ -1,0 +1,51 @@
+<form [formGroup]="createTaskForm">
+  <ion-item>
+    <ion-input
+      label="Categoria"
+      labelPlacement="stacked"
+      type="text"
+      placeholder="Escribe el nombre de la tarea"
+      formControlName="name"
+    ></ion-input>
+  </ion-item>
+  <div *ngIf="createTaskForm.get('name')?.hasError('required')" class="error">
+    *El campo nombre es requerido.
+  </div>
+  <ion-item>
+    <ion-input
+      label="Descripción"
+      labelPlacement="stacked"
+      type="text"
+      placeholder="Escribe la descripción de la tarea"
+      formControlName="description"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="datetime"
+          [(ngModel)]="date"
+          [ngModelOptions]="{ standalone: true }"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item *ngIf="listCategoires.length > 0">
+    <ion-select
+      label="Categoría"
+      placeholder="Selecciona una categoría"
+      formControlName="category"
+    >
+      <ion-select-option
+        *ngFor="let category of listCategoires"
+        [value]="category.id"
+        >{{ category.name }}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+</form>
+
+<ion-button expand="block" (click)="createTask()">Crear</ion-button>

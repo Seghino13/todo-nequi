@@ -1,0 +1,10 @@
+@import '../base/colors';
+input {
+  border: 0px;
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+
+.my-custom-action-sheet {
+  --background: #1f1f1f;
+}

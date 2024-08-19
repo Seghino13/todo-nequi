@@ -1,0 +1,28 @@
+@import '../../../assets/styles/base/colors';
+
+.task {
+  position: relative;
+  &-icon {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    background-color: $color-primary-purple;
+    border-radius: 50%;
+    padding: 5px 5px 0px 6px;
+  }
+}
+
+.full-screen-div {
+  border: 1px dashed $color-primary-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.full-screen-div p {
+  text-align: center;
+}

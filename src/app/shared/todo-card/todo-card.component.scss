@@ -1,0 +1,50 @@
+@import '../../../assets/styles/base/colors';
+.card-todo {
+  position: relative;
+  &-date {
+    padding: 9px 5px 0px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    &__ends {
+      font-size: 16px;
+    }
+  }
+}
+.show-more-button {
+  position: absolute;
+  right: 10px;
+  top: 65px;
+  font-size: 20px;
+  z-index: 9;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  &__title {
+    margin-left: 10px;
+  }
+}
+
+.actions {
+  text-align: right;
+}
+
+.delete {
+  color: $color-error;
+}
+.subtitle {
+  color: $color-white;
+  text-shadow: 0px 0px 0px $color-title;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  &-square {
+    border-radius: 1px;
+    height: 8px;
+    width: 8px;
+    margin-right: 4px;
+  }
+}

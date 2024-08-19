@@ -1,0 +1,61 @@
+<ion-card
+  class="card-todo"
+  [ngStyle]="{
+    'background-color': currenCategory?.color + '50',
+    color: currenCategory?.color,
+  }"
+>
+  <div class="card-todo-date">
+    Finaliza:
+    <span class="card-todo-date__ends">{{ task?.endDate | date }}</span>
+  </div>
+  <div class="show-more-button" (click)="showMoreAction()">
+    <ion-icon
+      slot="icon-only"
+      name="chevron-{{ showMore ? 'up' : 'down' }}-outline"
+    ></ion-icon>
+  </div>
+  <ion-card-header>
+    <div class="todo-header">
+      <form [formGroup]="checkForm" class="todo-header__checkbox">
+        <ion-checkbox
+          class="custom-checkbox"
+          formControlName="check"
+        ></ion-checkbox>
+      </form>
+      <div class="todo-header__title">
+        <ion-card-title
+          class="subtitle"
+          [ngStyle]="{
+            'text-decoration': task?.completed ? 'line-through' : '',
+          }"
+        >
+          {{ task?.name }}</ion-card-title
+        >
+        <div class="category">
+          <div
+            class="category-square"
+            [ngStyle]="{ 'background-color': currenCategory?.color }"
+          ></div>
+          <ion-card-subtitle
+            [ngStyle]="{
+              color: currenCategory?.color + '90',
+            }"
+          >
+            {{ currenCategory?.name }}</ion-card-subtitle
+          >
+        </div>
+      </div>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content *ngIf="showMore">
+    {{ task?.description }}
+
+    <div class="actions">
+      <ion-button fill="clear" size="small" class="delete" (click)="delete()"
+        >Eliminar</ion-button
+      >
+    </div>
+  </ion-card-content>
+</ion-card>

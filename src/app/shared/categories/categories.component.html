@@ -1,0 +1,29 @@
+<form [formGroup]="createCategoryForm">
+  <ion-item>
+    <ion-input
+      label="Categoria"
+      labelPlacement="stacked"
+      type="text"
+      placeholder="Escribe el nombre de la Categoria"
+      formControlName="name"
+    ></ion-input>
+  </ion-item>
+  <div
+    *ngIf="createCategoryForm.get('name')?.hasError('required')"
+    class="error"
+  >
+    *El campo nombre es requerido.
+  </div>
+  <ion-item>
+    <ion-label>Color</ion-label>
+    <input
+      [(colorPicker)]="color"
+      [style.background]="color"
+      [value]="color"
+      readonly
+      formControlName="color"
+    />
+  </ion-item>
+</form>
+
+<ion-button expand="block" (click)="createCategory()">Crear</ion-button>

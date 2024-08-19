@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  &-title {
+    color: $color-white;
+    text-transform: capitalize;
+    font-size: 36px;
+    text-align: left;
+    font-weight: 500;
+    flex-grow: 1;
+  }
+  &-action {
+    text-align: right;
+    float: right;
+    font-size: 24px;
+  }
+}

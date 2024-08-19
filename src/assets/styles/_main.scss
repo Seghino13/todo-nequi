@@ -5,3 +5,23 @@
 @import './themes/themes';
 @import './utils/utils';
 @import './vendors/vendors';
+
+.error {
+  color: $color-error;
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.toolbar-title {
+  text-align: right;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+* {
+  color: $color-white;
+}
+:root {
+  --ion-background-color: #121212;
+  --ion-color-primary: #5542f6;
+}
