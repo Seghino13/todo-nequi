@@ -5,3 +5,15 @@
 @import './themes/themes';
 @import './utils/utils';
 @import './vendors/vendors';
+
+.error {
+  color: $color-error;
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.toolbar-title {
+  text-align: right;
+  text-transform: capitalize;
+  font-weight: 400;
+}

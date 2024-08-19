@@ -1,0 +1,13 @@
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button size="small">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button (click)="openModal(typeModal.TASK)">
+      <ion-icon name="document"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="openModal(typeModal.CATEGORY)">
+      <ion-icon name="globe"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

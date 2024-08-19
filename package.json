@@ -34,8 +34,10 @@
     "@capacitor/status-bar": "6.0.1",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.0.0",
+    "ngx-color-picker": "^17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uuid": "^10.0.0",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
@@ -58,6 +60,7 @@
     "@types/karma-coverage": "^2.0.3",
     "@types/karma-jasmine": "^4.0.5",
     "@types/karma-jasmine-html-reporter": "^1.7.3",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "commitizen": "^4.3.0",
