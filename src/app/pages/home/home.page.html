@@ -4,7 +4,29 @@
       [headerOptions]="headerOptions"
       (page)="page($event)"
     ></app-header>
-    <app-todo-card></app-todo-card>
+
+    <ion-searchbar
+      *ngIf="tasks.length > 0"
+      animated="true"
+      placeholder="Buscar tarea"
+      [(ngModel)]="search"
+    ></ion-searchbar>
+
+    <div
+      class="full-screen-div"
+      *ngIf="tasks.length === 0"
+      (click)="openModal(typeModal.TASK)"
+    >
+      <p>Crea tu primer tarea</p>
+    </div>
+
+    <div *ngFor="let task of tasks  | filterTasks:search">
+      <app-todo-card
+        [task]="task"
+        (deleteTask)="deleteTask($event)"
+        (completeTaks)="checkTask($event)"
+      ></app-todo-card>
+    </div>
   </div>
   <app-task-control (modal)="openModal($event)"></app-task-control>
 </ion-content>
@@ -24,7 +46,10 @@
         *ngIf="currentModal === typeModal.CATEGORY"
         (closeModal)="confirm(true)"
       ></app-categories>
-      <app-tasks *ngIf="currentModal === typeModal.TASK"></app-tasks>
+      <app-tasks
+        *ngIf="currentModal === typeModal.TASK"
+        (closeModal)="confirm(true)"
+      ></app-tasks>
     </ion-content>
   </ng-template>
 </ion-modal>

@@ -13,3 +13,16 @@
     padding: 5px 5px 0px 6px;
   }
 }
+
+.full-screen-div {
+  border: 1px dashed $color-primary-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.full-screen-div p {
+  text-align: center;
+}

@@ -4,6 +4,8 @@ import { Category } from 'src/app/models/category.interface';
 import { HeaderOptions } from 'src/app/models/header-options';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { ActionSheetController, IonModal } from '@ionic/angular';
+import { AngularFireRemoteConfig } from '@angular/fire/compat/remote-config';
+
 @Component({
   selector: 'app-categories-page',
   templateUrl: './categories.page.html',
@@ -17,21 +19,34 @@ export class CategoriesPage implements OnInit {
   };
   listCategoires: Category[] = [];
   categorySelected?: Category;
+  canEdit: boolean = false;
   @ViewChild(IonModal) modal?: IonModal;
   constructor(
     private router: Router,
     private categoriesService: CategoriesService,
     private actionSheetCtrl: ActionSheetController,
+    private remoteConfig: AngularFireRemoteConfig,
   ) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    try {
+      await this.remoteConfig.fetchAndActivate();
+
+      const myParamValue =
+        await this.remoteConfig.getValue('canEditCategories');
+      const myParam = myParamValue.asBoolean();
+
+      this.canEdit = myParam;
+    } catch (error) {
+      console.error('Error fetching remote config:', error);
+    }
+  }
   ionViewWillEnter() {
     this.getCategories();
   }
 
   getCategories() {
     this.listCategoires = this.categoriesService.getCategories();
-    console.log(this.listCategoires);
   }
 
   page($event: string) {
@@ -40,7 +55,7 @@ export class CategoriesPage implements OnInit {
 
   async presentActionSheet(category: Category) {
     this.categorySelected = category;
-    const actionSheet = await this.actionSheetCtrl.create({
+    const buttons = {
       buttons: [
         {
           text: 'Eliminar',
@@ -49,12 +64,7 @@ export class CategoriesPage implements OnInit {
             this.deleteCategory(category);
           },
         },
-        {
-          text: 'Editar',
-          handler: () => {
-            this.openModal();
-          },
-        },
+
         {
           text: 'Cancelar',
           role: 'cancel',
@@ -63,8 +73,19 @@ export class CategoriesPage implements OnInit {
           },
         },
       ],
-    });
+      cssClass: 'my-custom-action-sheet',
+    };
 
+    if (this.canEdit) {
+      buttons.buttons.push({
+        text: 'Editar',
+        handler: () => {
+          this.openModal();
+        },
+        role: '',
+      });
+    }
+    const actionSheet = await this.actionSheetCtrl.create(buttons);
     await actionSheet.present();
   }
 

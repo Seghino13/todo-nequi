@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { UtilsService } from 'src/app/services/utils.service';
-
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -49,10 +48,12 @@ export class CategoriesComponent implements OnInit {
 
     this.categoriesService.setCategories(valueForm);
     this.closeModal.emit(true);
+    this.utilsService.presentToast('Categoria creada...');
   }
 
   updateCategory(valueForm: Category) {
     this.categoriesService.updateCategoryById(valueForm);
     this.closeModal.emit(true);
+    this.utilsService.presentToast('Categoria actualizada...');
   }
 }
