@@ -13,7 +13,7 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class HomePage implements OnInit {
   headerOptions: HeaderOptions = {
     title: 'To Do',
-    hasIcon: true,
+    hasIcon: false,
     icon: 'options-outline',
   };
   @ViewChild(IonModal) modal?: IonModal;

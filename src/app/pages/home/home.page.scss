@@ -26,3 +26,12 @@
 .full-screen-div p {
   text-align: center;
 }
+
+::ng-deep.ion-datetime-button-overlay ::ng-deep ion-datetime.datetime-grid {
+  color: $color-secondary;
+}
+
+
+::ng-deep.datetime-time{
+  color: red;
+}
